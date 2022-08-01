@@ -1,0 +1,149 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.main-title {
+  font-family: sans-serif;
+  text-align: center;
+  margin: 1rem;
+}
+
+thead {
+  background-color: #3f87a6;
+  color: #fff;
+}
+
+td,
+th {
+  border: 1px solid rgb(190, 190, 190);
+  padding: 5px 10px;
+}
+
+.books-table {
+  border-collapse: collapse;
+  border: 2px solid rgb(200, 200, 200);
+  font-family: sans-serif;
+  font-size: 0.8rem;
+  margin: 1rem auto;
+}
+
+.action-btn {
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 10px;
+  margin: 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.btn-read {
+  background-color: #2252c5;
+}
+
+.btn-update {
+  background-color: #ec9e3d;
+}
+
+.btn-delete {
+  background-color: #c4534a;
+}
+
+.add-book-button {
+  display: block;
+  margin: 0 auto;
+  background-color: #127f48;
+}
+
+.modal {
+  display: none;
+  position: absolute;
+  background-color: #127f48;
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+  padding: 10px;
+  text-align: center;
+  margin: 0 auto;
+  width: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 110px;
+  border-radius: 5px;
+}
+
+.modal.shown {
+  display: block;
+}
+
+.modal img {
+  width: 200px;
+}
+
+.modal > button {
+  display: block;
+  margin: 0 auto;
+  background-color: #ec9e3d;
+}
+
+.adjust-rating {
+  padding: 10px;
+}
+
+.minus,
+.plus {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  background: #93a2ae;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.rating-input {
+  height: 20px;
+  width: 25px;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.book-filter {
+  display: block;
+  font-family: sans-serif;
+  text-align: center;
+  color: #127f48;
+  padding: 10px;
+}
+
+.book-filter label {
+  padding: 10px;
+}
+
+.filter-range {
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.paging-buttons {
+  text-align: center;
+}
+
+.page-button {
+  margin: 1rem auto;
+  background-color: #127f48;
+}
+
+.next-page:disabled {
+  background: #dddddd;
+}
+
+.prev-page:disabled {
+  background: #dddddd;
+}
