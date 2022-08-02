@@ -13,13 +13,34 @@
       <option value="en">English</option>
       <option value="he">עברית</option>
     </select>
-    <button
-      data-trans="create-book"
-      onclick="onAddBook()"
-      class="action-btn add-book-button"
-    >
-      Create new book
-    </button>
+    <form class="new-book">
+      <h6 data-trans="add-book-alert">Enter valid input</h6>
+      <input
+        data-trans="add-book-name"
+        type="text"
+        class="book-name"
+        name="book-name"
+        value=""
+        placeholder="Enter book name.."
+      />
+      <input
+        data-trans="add-book-price"
+        type="number"
+        class="book-price"
+        max="150"
+        name="book-price"
+        value=""
+        placeholder="Enter book price.."
+      />
+      <button
+        data-trans="create-book"
+        onclick="onAddBook(event)"
+        class="action-btn add-book-button"
+      >
+        Create new book
+      </button>
+    </form>
+
     <section class="book-filter">
       <h2 data-trans="filter-books">Filter Books</h2>
       <label data-trans="max-price"> Max Price: </label>

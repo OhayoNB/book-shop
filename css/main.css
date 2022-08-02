@@ -164,3 +164,24 @@ th {
 .modal-price-title {
   display: inline;
 }
+
+form > input {
+  display: block;
+  margin: 1rem auto;
+}
+
+.new-book {
+  background-color: #16ac61;
+  border-radius: 10px;
+  width: 30%;
+  margin: 0 auto;
+  padding: 2rem 0;
+  font-family: sans-serif;
+}
+
+form > h6 {
+  text-align: center;
+  font-size: 18px;
+  color: #dc453a;
+  visibility: hidden;
+}

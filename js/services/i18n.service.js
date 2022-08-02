@@ -81,6 +81,18 @@ var gTrans = {
     en: 'Close',
     he: 'סגור',
   },
+  'add-book-alert': {
+    en: 'Enter valid input',
+    he: 'הזן קלט חוקי',
+  },
+  'add-book-name': {
+    en: 'Enter book name..',
+    he: 'הזן את שם הספר..',
+  },
+  'add-book-price': {
+    en: 'Enter book price..',
+    he: 'הזן את מחיר הספר..',
+  },
 }
 
 var gCurrLang = 'en'

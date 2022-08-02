@@ -60,18 +60,35 @@ function onRemoveBook(bookId) {
   renderBooks()
 }
 
-function onAddBook() {
-  var name = prompt('Enter book name')
-  var price = +prompt('Enter book price')
+function onAddBook(ev) {
+  ev.preventDefault()
+  var elName = document.querySelector('.book-name')
+  var elPrice = document.querySelector('.book-price')
+
+  var name = elName.value
+  var price = +elPrice.value
 
   if (price > 150) {
     alert('This is a cheap store! The maximum price for a book is 150$')
     return
   }
 
+  if (!name || !price) {
+    var elAlert = document.querySelector('form h6')
+    elAlert.style.visibility = 'visible'
+    setTimeout(() => {
+      elAlert.style.visibility = 'hidden'
+    }, 750)
+    elName.value = ''
+    elPrice.value = ''
+    return
+  }
+
   if (name && price) {
     addBook(name, price)
     renderBooks()
+    elName.value = ''
+    elPrice.value = ''
   }
 }
 
