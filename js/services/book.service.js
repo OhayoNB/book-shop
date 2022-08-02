@@ -138,3 +138,7 @@ function checkModalOpened() {
 
   return detailedBook
 }
+
+function isOnlyOnePage() {
+  return gBooks.length <= PAGE_SIZE
+}

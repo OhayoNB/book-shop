@@ -13,12 +13,12 @@ function renderBooks() {
   var strHTMLs = `
     <thead>
         <tr>
-            <th>Id</th>
-            <th class="clickable-heading" onclick="onSetSort('name')">Title</th>
-            <th class="clickable-heading" onclick="onSetSort('price')">Price</th>
-            <th>Rating</th>
-            <th>Image</th>
-            <th>Actions</th>
+            <th data-trans="book-id">Id</th>
+            <th data-trans="book-title" class="clickable-heading" onclick="onSetSort('name')">Title</th>
+            <th data-trans="book-price" class="clickable-heading" onclick="onSetSort('price')">Price</th>
+            <th data-trans="book-rating">Rating</th>
+            <th data-trans="book-image">Image</th>
+            <th data-trans="book-actions">Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -34,9 +34,9 @@ function renderBooks() {
                 <th>${book.rate}</th>
                 <th><img src="${book.imgUrl}" width="80"></th>
                 <th>
-                    <button onclick="onReadBook('${book.id}')" class="action-btn btn-read">Read</button>
-                    <button onclick="onUpdateBook('${book.id}')" class="action-btn btn-update">Update</button>
-                    <button onclick="onRemoveBook('${book.id}')" class="action-btn btn-delete">Delete</button>
+                    <button data-trans="read" onclick="onReadBook('${book.id}')" class="action-btn btn-read">Read</button>
+                    <button data-trans="update" onclick="onUpdateBook('${book.id}')" class="action-btn btn-update">Update</button>
+                    <button data-trans="delete" onclick="onRemoveBook('${book.id}')" class="action-btn btn-delete">Delete</button>
                 </th>
             </tr>
             `)
@@ -93,13 +93,13 @@ function renderModal(book) {
         <h3>${book.name}</h3>
       <h4>Price - <span>$${book.price}</span></h4>
       <img src="${book.imgUrl}" />
-      <h4>Rating</h4>
+      <h4 data-trans="rating">Rating</h4>
       <div class="adjust-rating">
         <button onclick="onChangeRating('${book.id}', -1)" class="minus">-</button>
         <input class="rating-input" type="text" value="${book.rate}" />
         <button onclick="onChangeRating('${book.id}', 1)" class="plus">+</button>
       </div>
-      <button class="action-btn" onclick="onCloseModal()">Close</button>
+      <button data-trans="close-modal" class="action-btn" onclick="onCloseModal()">Close</button>
     `
 
   var elModal = document.querySelector('.modal')
@@ -172,7 +172,7 @@ function onPrevPage() {
 }
 
 function checkIfOnlyOnePage() {
-  if (PAGE_SIZE === gBooks.length) {
+  if (isOnlyOnePage()) {
     document.querySelector('.next-page').setAttribute('disabled', '')
   } else {
     document.querySelector('.next-page').removeAttribute('disabled', '')

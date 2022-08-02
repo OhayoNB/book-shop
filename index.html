@@ -5,16 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/main.css" />
-    <title>Books Shop</title>
+    <title>Book Shop</title>
   </head>
   <body onload="onInit()">
-    <h1 class="main-title">Welcome to my bookshop</h1>
-    <button onclick="onAddBook()" class="action-btn add-book-button">
+    <h1 data-trans="main-title" class="main-title">Welcome to my bookshop</h1>
+    <button
+      data-trans="create-book"
+      onclick="onAddBook()"
+      class="action-btn add-book-button"
+    >
       Create new book
     </button>
     <section class="book-filter">
-      <h2>Filter Books</h2>
-      <label>
+      <h2 data-trans="filter-books">Filter Books</h2>
+      <label data-trans="max-price">
         Max Price:
         <input
           type="range"
@@ -25,7 +29,7 @@
           onchange="this.title=this.value;onSetFilterBy({maxPrice: this.value})"
         />
       </label>
-      <label>
+      <label data-trans="min-rating">
         Min Rating:
         <input
           type="range"
@@ -37,6 +41,7 @@
         />
       </label>
       <input
+        data-trans="search-book-input-placeholder"
         type="text"
         class="filter-input"
         onkeyup="onSetFilterBy({bookTitle: this.value})"
@@ -46,13 +51,18 @@
     <table class="books-table"></table>
     <div class="paging-buttons">
       <button
+        data-trans="prev-page"
         disabled
         class="action-btn page-button prev-page"
         onclick="onPrevPage()"
       >
         Prev Page
       </button>
-      <button class="action-btn page-button next-page" onclick="onNextPage()">
+      <button
+        data-trans="next-page"
+        class="action-btn page-button next-page"
+        onclick="onNextPage()"
+      >
         Next Page
       </button>
     </div>
