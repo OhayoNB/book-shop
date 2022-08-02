@@ -4,6 +4,10 @@
   padding: 0;
 }
 
+body.rtl {
+  direction: rtl;
+}
+
 .main-title {
   font-family: sans-serif;
   text-align: center;
@@ -150,4 +154,9 @@ th {
 
 .clickable-heading {
   cursor: pointer;
+}
+
+.lang-select {
+  display: block;
+  margin: 1rem auto;
 }

@@ -79,9 +79,9 @@ var gCurrLang = 'en'
 
 function getTrans(transKey) {
   const key = gTrans[transKey]
-  // if key is unknown return 'UNKNOWN'
+
   if (!key) return 'UNKNOWN'
-  //  get from gTrans
+
   let translateVal = key[gCurrLang]
   // If translation not found - use english
   if (!translateVal) translateVal = key['en']
@@ -90,6 +90,7 @@ function getTrans(transKey) {
 
 function doTrans() {
   const els = document.querySelectorAll('[data-trans]')
+  console.log(`els:`, els)
   els.forEach((el) => {
     const translateKey = el.dataset.trans
     const translateVal = getTrans(translateKey)

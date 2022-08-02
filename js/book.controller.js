@@ -45,6 +45,7 @@ function renderBooks() {
 
   strHTMLs += `</tbody>`
   document.querySelector('.books-table').innerHTML = strHTMLs
+  doTrans()
 }
 
 function onRemoveBook(bookId) {
@@ -105,6 +106,7 @@ function renderModal(book) {
   var elModal = document.querySelector('.modal')
   elModal.innerHTML = strHTMLs
   elModal.classList.add('shown')
+  doTrans()
 }
 
 function onChangeRating(bookId, diff) {
@@ -117,7 +119,7 @@ function onChangeRating(bookId, diff) {
 function onSetFilterBy(filterBy) {
   filterBy = setBookFilter(filterBy)
 
-  console.log(`gFilterBy:`, gFilterBy)
+  // console.log(`gFilterBy:`, gFilterBy)
   renderBooks()
 
   const queryStringParams = `?maxPrice=${filterBy.maxPrice}&minRate=${filterBy.minRate}&bookTitle=${filterBy.bookTitle}`
@@ -188,4 +190,11 @@ function onCheckModalOpened() {
   const book = checkModalOpened()
 
   if (book) renderModal(book)
+}
+
+function onSetLang(lang) {
+  setLang(lang)
+  if (lang === 'he') document.body.classList.add('rtl')
+  else document.body.classList.remove('rtl')
+  doTrans()
 }

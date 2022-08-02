@@ -9,6 +9,10 @@
   </head>
   <body onload="onInit()">
     <h1 data-trans="main-title" class="main-title">Welcome to my bookshop</h1>
+    <select class="lang-select" onchange="onSetLang(this.value)">
+      <option value="en">English</option>
+      <option value="he">עברית</option>
+    </select>
     <button
       data-trans="create-book"
       onclick="onAddBook()"
@@ -18,28 +22,26 @@
     </button>
     <section class="book-filter">
       <h2 data-trans="filter-books">Filter Books</h2>
-      <label data-trans="max-price">
-        Max Price:
-        <input
-          type="range"
-          min="0"
-          max="100"
-          value="100"
-          class="filter-range filter-price-range"
-          onchange="this.title=this.value;onSetFilterBy({maxPrice: this.value})"
-        />
-      </label>
-      <label data-trans="min-rating">
-        Min Rating:
-        <input
-          type="range"
-          min="0"
-          max="10"
-          value="0"
-          class="filter-range filter-rating-range"
-          onchange="this.title=this.value;onSetFilterBy({minRate: this.value})"
-        />
-      </label>
+      <label data-trans="max-price"> Max Price: </label>
+      <input
+        type="range"
+        min="0"
+        max="100"
+        value="100"
+        class="filter-range filter-price-range"
+        onchange="this.title=this.value;onSetFilterBy({maxPrice: this.value})"
+      />
+
+      <label data-trans="min-rating"> Min Rating: </label>
+      <input
+        type="range"
+        min="0"
+        max="10"
+        value="0"
+        class="filter-range filter-rating-range"
+        onchange="this.title=this.value;onSetFilterBy({minRate: this.value})"
+      />
+
       <input
         data-trans="search-book-input-placeholder"
         type="text"
@@ -69,6 +71,7 @@
     <div class="modal"></div>
     <script src="js/services/util.service.js"></script>
     <script src="js/services/storage.service.js"></script>
+    <script src="js/services/i18n.service.js"></script>
     <script src="js/services/book.service.js"></script>
     <script src="js/book.controller.js"></script>
   </body>
