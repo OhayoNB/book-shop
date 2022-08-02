@@ -30,13 +30,19 @@ function renderBooks() {
             <tr>
                 <th>${book.id}</th>
                 <th>${book.name}</th>
-                <th>$${book.price}</th>
+                <th>${formatPrice(book.price)}</th>
                 <th>${book.rate}</th>
                 <th><img src="${book.imgUrl}" width="80"></th>
                 <th>
-                    <button data-trans="read" onclick="onReadBook('${book.id}')" class="action-btn btn-read">Read</button>
-                    <button data-trans="update" onclick="onUpdateBook('${book.id}')" class="action-btn btn-update">Update</button>
-                    <button data-trans="delete" onclick="onRemoveBook('${book.id}')" class="action-btn btn-delete">Delete</button>
+                    <button data-trans="read" onclick="onReadBook('${
+                      book.id
+                    }')" class="action-btn btn-read">Read</button>
+                    <button data-trans="update" onclick="onUpdateBook('${
+                      book.id
+                    }')" class="action-btn btn-update">Update</button>
+                    <button data-trans="delete" onclick="onRemoveBook('${
+                      book.id
+                    }')" class="action-btn btn-delete">Delete</button>
                 </th>
             </tr>
             `)
@@ -93,14 +99,20 @@ function renderModal(book) {
   const strHTMLs = `
         <h3>${book.name}</h3>
         <div>
-        <h4 class="modal-price-title" data-trans="modal-price">Price - </h4><span>$${book.price}</span>
+        <h4 class="modal-price-title" data-trans="modal-price">Price - </h4><span>${formatPrice(
+          book.price
+        )}</span>
         </div>
       <img src="${book.imgUrl}" />
       <h4 data-trans="modal-rating">Rating</h4>
       <div class="adjust-rating">
-        <button onclick="onChangeRating('${book.id}', -1)" class="minus">-</button>
+        <button onclick="onChangeRating('${
+          book.id
+        }', -1)" class="minus">-</button>
         <input class="rating-input" type="text" value="${book.rate}" />
-        <button onclick="onChangeRating('${book.id}', 1)" class="plus">+</button>
+        <button onclick="onChangeRating('${
+          book.id
+        }', 1)" class="plus">+</button>
       </div>
       <button data-trans="close-modal" class="action-btn" onclick="onCloseModal()">Close</button>
     `
@@ -199,4 +211,7 @@ function onSetLang(lang) {
   if (lang === 'he') document.body.classList.add('rtl')
   else document.body.classList.remove('rtl')
   doTrans()
+
+  // Render books to apply price change right after language change
+  renderBooks()
 }

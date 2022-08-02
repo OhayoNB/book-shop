@@ -110,3 +110,15 @@ function doTrans() {
 function setLang(lang) {
   gCurrLang = lang
 }
+
+function formatPrice(price) {
+  // return new Intl.NumberFormat(gCurrLang, shekelOpt).format(price)
+  price = gCurrLang === 'en' ? price : price * 3.37
+
+  return new Intl.NumberFormat(gCurrLang, {
+    style: 'currency',
+    currency: gCurrLang === 'en' ? 'usd' : 'ils',
+  }).format(price)
+  // console.log(new Intl.NumberFormat('he', shekelOpt).format(num))
+  // console.log(new Intl.NumberFormat('fr', shekelOpt).format(num))
+}
