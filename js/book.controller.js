@@ -45,6 +45,7 @@ function renderBooks() {
 
   strHTMLs += `</tbody>`
   document.querySelector('.books-table').innerHTML = strHTMLs
+  checkIfOnlyOnePage()
   doTrans()
 }
 
@@ -65,7 +66,6 @@ function onAddBook() {
   if (name && price) {
     addBook(name, price)
     renderBooks()
-    checkIfOnlyOnePage()
   }
 }
 
@@ -92,9 +92,11 @@ function onCloseModal() {
 function renderModal(book) {
   const strHTMLs = `
         <h3>${book.name}</h3>
-      <h4>Price - <span>$${book.price}</span></h4>
+        <div>
+        <h4 class="modal-price-title" data-trans="modal-price">Price - </h4><span>$${book.price}</span>
+        </div>
       <img src="${book.imgUrl}" />
-      <h4 data-trans="rating">Rating</h4>
+      <h4 data-trans="modal-rating">Rating</h4>
       <div class="adjust-rating">
         <button onclick="onChangeRating('${book.id}', -1)" class="minus">-</button>
         <input class="rating-input" type="text" value="${book.rate}" />

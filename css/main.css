@@ -160,3 +160,7 @@ th {
   display: block;
   margin: 1rem auto;
 }
+
+.modal-price-title {
+  display: inline;
+}

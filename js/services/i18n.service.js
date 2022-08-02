@@ -69,6 +69,14 @@ var gTrans = {
     en: 'Delete',
     he: 'מחק',
   },
+  'modal-price': {
+    en: 'Price - ',
+    he: 'מחיר - ',
+  },
+  'modal-rating': {
+    en: 'Rating',
+    he: 'דירוג',
+  },
   'close-modal': {
     en: 'Close',
     he: 'סגור',
@@ -90,13 +98,12 @@ function getTrans(transKey) {
 
 function doTrans() {
   const els = document.querySelectorAll('[data-trans]')
-  console.log(`els:`, els)
+
   els.forEach((el) => {
     const translateKey = el.dataset.trans
     const translateVal = getTrans(translateKey)
     el.innerText = translateVal
     if (el.placeholder !== undefined) el.placeholder = translateVal
-    // el.innerText = 'test'
   })
 }
 
