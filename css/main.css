@@ -147,3 +147,7 @@ th {
 .prev-page:disabled {
   background: #dddddd;
 }
+
+.clickable-heading {
+  cursor: pointer;
+}

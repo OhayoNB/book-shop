@@ -14,8 +14,8 @@ function renderBooks() {
     <thead>
         <tr>
             <th>Id</th>
-            <th onclick="onSetSort('name')">Title</th>
-            <th onclick="onSetSort('price')">Price</th>
+            <th class="clickable-heading" onclick="onSetSort('name')">Title</th>
+            <th class="clickable-heading" onclick="onSetSort('price')">Price</th>
             <th>Rating</th>
             <th>Image</th>
             <th>Actions</th>
