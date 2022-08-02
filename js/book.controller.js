@@ -84,12 +84,10 @@ function onAddBook(ev) {
     return
   }
 
-  if (name && price) {
-    addBook(name, price)
-    renderBooks()
-    elName.value = ''
-    elPrice.value = ''
-  }
+  addBook(name, price)
+  renderBooks()
+  elName.value = ''
+  elPrice.value = ''
 }
 
 function onUpdateBook(bookId) {
