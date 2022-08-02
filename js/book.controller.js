@@ -130,7 +130,7 @@ function onSetFilterBy(filterBy) {
   window.history.pushState({ path: newUrl }, '', newUrl)
 }
 
-function  renderFilterByQueryStringParams(){
+function renderFilterByQueryStringParams() {
   const queryStringParams = new URLSearchParams(window.location.search)
   const filterBy = {
     maxPrice: queryStringParams.get('maxPrice') || 150,
@@ -148,12 +148,26 @@ function  renderFilterByQueryStringParams(){
 }
 
 function onNextPage() {
-  nextPage()
+  const isLastPage = nextPage()
+  const elPrevPage = document.querySelector('.prev-page')
+  const elNextPage = document.querySelector('.next-page')
+
+  elPrevPage.removeAttribute('disabled', '')
+  if (isLastPage) {
+    elNextPage.setAttribute('disabled', '')
+  }
   renderBooks()
 }
 
 function onPrevPage() {
-  prevPage()
+  const isFirstPage = prevPage()
+  const elPrevPage = document.querySelector('.prev-page')
+  const elNextPage = document.querySelector('.next-page')
+
+  elNextPage.removeAttribute('disabled', '')
+  if (isFirstPage) {
+    elPrevPage.setAttribute('disabled', '')
+  }
   renderBooks()
 }
 

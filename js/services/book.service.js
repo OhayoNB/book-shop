@@ -100,26 +100,16 @@ function setBookFilter(filterBy = {}) {
 
 function nextPage() {
   gPageIdx++
-  const elPrevPage = document.querySelector('.prev-page')
-  const elNextPage = document.querySelector('.next-page')
 
-  elPrevPage.removeAttribute('disabled', '')
-  if (PAGE_SIZE + gPageIdx * PAGE_SIZE >= gBooks.length) {
-    elNextPage.setAttribute('disabled', '')
-    elPrevPage.removeAttribute('disabled', '')
-  }
+  const isLastPage = PAGE_SIZE + gPageIdx * PAGE_SIZE >= gBooks.length
+  return isLastPage
 }
 
 function prevPage() {
   gPageIdx--
-  const elPrevPage = document.querySelector('.prev-page')
-  const elNextPage = document.querySelector('.next-page')
 
-  elNextPage.removeAttribute('disabled', '')
-  if (gPageIdx === 0) {
-    elPrevPage.setAttribute('disabled', '')
-    elNextPage.removeAttribute('disabled', '')
-  }
+  const isFirstPage = gPageIdx === 0
+  return isFirstPage
 }
 
 function setBookSort(sortBy) {
